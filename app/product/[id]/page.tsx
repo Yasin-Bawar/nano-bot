@@ -286,7 +286,7 @@ export default function ProductPage() {
         </div>
 
         {/* Tabs Section */}
-        <div className="container mx-auto px-6 py-12">
+        <div className="mt-12">
           <div className="border-b border-gray-200 mb-8">
             <div className="flex gap-8">
               <button
@@ -367,8 +367,7 @@ export default function ProductPage() {
             </motion.div>
           )}
         </div>
-
-
+      </div>
       </div>
 
       <Footer language={language} />
