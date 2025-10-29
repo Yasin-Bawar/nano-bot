@@ -1,0 +1,175 @@
+═══════════════════════════════════════════════════════════════
+  SUPABASE SQL SCHEMA SUMMARY - NANOBOT Electric Motorcycles
+═══════════════════════════════════════════════════════════════
+
+📋 COMPLETE SQL FILE: supabase-schema.sql (Run this in Supabase!)
+
+═══════════════════════════════════════════════════════════════
+  DATABASE TABLES (10 Total)
+═══════════════════════════════════════════════════════════════
+
+1. PRODUCTS
+   - Main product catalog
+   - Fields: id, name, name_local, description, price, old_price,
+            category, image_url, images[], rating, reviews_count,
+            in_stock, stock_quantity, featured
+   - Sample: 8 products included
+
+2. PRODUCT_SPECS
+   - Technical specifications
+   - Fields: id, product_id, label, value
+   - Example: "برد" → "220 کیلومتر"
+
+3. PRODUCT_FEATURES
+   - Product features list
+   - Fields: id, product_id, feature
+   - Example: "سیستم ABS پیشرفته"
+
+4. PRODUCT_COLORS
+   - Available colors
+   - Fields: id, product_id, name, code
+   - Example: "آبی" → "#2563EB"
+
+5. CUSTOMERS
+   - Customer information
+   - Fields: id, name, phone, country_code, location,
+            latitude, longitude
+
+6. ORDERS
+   - Order management
+   - Fields: id, customer_id, product_id, product_name,
+            quantity, total_price, status, notes
+   - Status: pending, confirmed, processing, shipped,
+            delivered, cancelled
+
+7. MESSAGES
+   - Customer-admin chat
+   - Fields: id, customer_id, order_id, sender_type,
+            message, is_read
+   - Sender: customer or admin
+
+8. REVIEWS
+   - Product reviews
+   - Fields: id, product_id, customer_id, rating, comment
+   - Rating: 1-5 stars
+
+9. CART
+   - Shopping cart
+   - Fields: id, customer_id, product_id, quantity
+
+10. WISHLIST
+    - Saved items
+    - Fields: id, customer_id, product_id
+
+═══════════════════════════════════════════════════════════════
+  AUTOMATIC FEATURES
+═══════════════════════════════════════════════════════════════
+
+✅ Auto-Timestamps
+   - created_at and updated_at on all tables
+   - Triggers update automatically
+
+✅ Rating Calculation
+   - Product rating updates when review added
+   - Reviews count updates automatically
+
+✅ Row Level Security (RLS)
+   - Public read for products
+   - Secure customer data
+   - Protected admin functions
+
+✅ Database Indexes
+   - Fast queries on category, status, customer
+   - Optimized for performance
+
+✅ Foreign Keys
+   - Proper relationships between tables
+   - Cascade deletes where appropriate
+
+═══════════════════════════════════════════════════════════════
+  CUSTOM FUNCTIONS
+═══════════════════════════════════════════════════════════════
+
+1. update_updated_at_column()
+   - Automatically updates timestamp on row change
+
+2. update_product_rating()
+   - Recalculates product rating when review added
+
+3. create_order_with_customer()
+   - Creates customer and order in one transaction
+   - Returns both IDs
+
+═══════════════════════════════════════════════════════════════
+  SAMPLE DATA INCLUDED
+═══════════════════════════════════════════════════════════════
+
+Motorcycles:
+  1. Sport SR/F        - $19,995 (featured)
+  2. Urban Cruiser     - $17,995 (featured)
+  3. White Sport       - $10,995
+  4. Silver Edition    - $11,995
+  5. White Rounded     - $12,995
+
+Parts:
+  6. Battery Pack      - $2,499
+  7. Handlebars        - $299
+  8. Motor System      - $1,899
+
+Plus: Specs, features, and colors for Sport SR/F
+
+═══════════════════════════════════════════════════════════════
+  HOW TO USE
+═══════════════════════════════════════════════════════════════
+
+1. Open Supabase Dashboard
+   → https://ifwvopjnyocdkwiualju.supabase.co
+
+2. Go to SQL Editor
+
+3. Create New Query
+
+4. Copy ENTIRE content from: supabase-schema.sql
+
+5. Paste and Run
+
+6. Wait for "Success" message
+
+7. Check Table Editor to see your tables
+
+═══════════════════════════════════════════════════════════════
+  VERIFICATION CHECKLIST
+═══════════════════════════════════════════════════════════════
+
+After running SQL, verify:
+□ 10 tables created
+□ 8 sample products visible
+□ Indexes created
+□ RLS policies enabled
+□ Functions created
+□ Triggers active
+□ Sample data loaded
+
+═══════════════════════════════════════════════════════════════
+  WHAT'S NEXT
+═══════════════════════════════════════════════════════════════
+
+1. Install: npm install @supabase/supabase-js
+2. Test: Visit /products page
+3. Verify: Products load from database
+4. Customize: Add your own products
+5. Deploy: Push to production
+
+═══════════════════════════════════════════════════════════════
+  COMPLETE! 🎉
+═══════════════════════════════════════════════════════════════
+
+Your database is ready with:
+✓ 10 tables
+✓ 8 sample products
+✓ Automatic features
+✓ Security policies
+✓ Real-time support
+✓ Full functionality
+
+Run the SQL and you're done!

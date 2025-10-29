@@ -1,0 +1,11 @@
+Run this command to install Supabase client:
+
+npm install @supabase/supabase-js
+
+or
+
+yarn add @supabase/supabase-js
+
+or
+
+pnpm add @supabase/supabase-js

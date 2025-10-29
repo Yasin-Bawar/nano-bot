@@ -1,0 +1,104 @@
+═══════════════════════════════════════════════════════════════
+  QUICK COMMAND REFERENCE
+═══════════════════════════════════════════════════════════════
+
+STEP 1: INSTALL SUPABASE
+─────────────────────────────────────────────────────────────
+npm install @supabase/supabase-js
+
+or
+
+yarn add @supabase/supabase-js
+
+or
+
+pnpm add @supabase/supabase-js
+
+
+STEP 2: RUN SQL IN SUPABASE
+─────────────────────────────────────────────────────────────
+1. Go to: https://ifwvopjnyocdkwiualju.supabase.co
+2. Click: SQL Editor
+3. Click: New Query
+4. Open file: supabase-schema.sql
+5. Copy all content
+6. Paste in SQL Editor
+7. Click: Run
+
+
+STEP 3: START YOUR APP
+─────────────────────────────────────────────────────────────
+npm run dev
+
+
+STEP 4: TEST
+─────────────────────────────────────────────────────────────
+Open browser: http://localhost:3000/products
+
+
+═══════════════════════════════════════════════════════════════
+  USEFUL SUPABASE COMMANDS
+═══════════════════════════════════════════════════════════════
+
+View all products:
+SELECT * FROM products;
+
+View all orders:
+SELECT * FROM orders;
+
+View all customers:
+SELECT * FROM customers;
+
+View all messages:
+SELECT * FROM messages;
+
+Count products:
+SELECT COUNT(*) FROM products;
+
+Get featured products:
+SELECT * FROM products WHERE featured = true;
+
+Get orders with customer info:
+SELECT o.*, c.name, c.phone 
+FROM orders o 
+JOIN customers c ON o.customer_id = c.id;
+
+
+═══════════════════════════════════════════════════════════════
+  TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════
+
+If products don't load:
+1. Check browser console for errors
+2. Verify .env.local has correct values
+3. Check Supabase dashboard for tables
+4. Verify RLS policies are enabled
+
+If SQL fails:
+1. Run in smaller chunks
+2. Check for syntax errors
+3. Verify UUID extension is enabled
+4. Check Supabase logs
+
+If real-time doesn't work:
+1. Enable Realtime in Supabase dashboard
+2. Check subscription code
+3. Verify RLS policies allow reads
+
+
+═══════════════════════════════════════════════════════════════
+  DOCUMENTATION FILES
+═══════════════════════════════════════════════════════════════
+
+README_SUPABASE.md      - Main overview
+QUICK_START.md          - 3-step setup
+SUPABASE_SETUP.md       - Detailed guide
+INSTALLATION_GUIDE.md   - Complete walkthrough
+PROJECT_STRUCTURE.md    - File organization
+SQL_SUMMARY.txt         - Database summary
+COMMANDS.txt            - This file
+
+
+═══════════════════════════════════════════════════════════════
+  DONE! 🎉
+═══════════════════════════════════════════════════════════════

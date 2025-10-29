@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Supabase Connection</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <h1>Supabase Connection Test</h1>
+    <button onclick="testConnection()">Test Connection</button>
+    <button onclick="testInsert()">Test Insert Customer</button>
+    <div id="result"></div>
+
+    <script>
+        const SUPABASE_URL = 'https://ifwvopjnyocdkwiualju.supabase.co'
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlmd3ZvcGpueW9jZGt3aXVhbGp1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjExMzc2MDcsImV4cCI6MjA3NjcxMzYwN30.ijtj8VFs_zPNSzQ2iNL0bbJW3ESZbp0TbuMwZN14-tU'
+        
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY)
+
+        async function testConnection() {
+            const result = document.getElementById('result')
+            result.innerHTML = 'Testing connection...'
+            
+            try {
+                const { data, error } = await supabase
+                    .from('products')
+                    .select('count')
+                    .limit(1)
+                
+                if (error) {
+                    result.innerHTML = `<p style="color: red;">❌ Error: ${error.message}</p>`
+                } else {
+                    result.innerHTML = `<p style="color: green;">✅ Connection successful!</p>`
+                }
+            } catch (err) {
+                result.innerHTML = `<p style="color: red;">❌ Error: ${err.message}</p>`
+            }
+        }
+
+        async function testInsert() {
+            const result = document.getElementById('result')
+            result.innerHTML = 'Testing customer insert...'
+            
+            try {
+                const { data, error } = await supabase
+                    .from('customers')
+                    .insert([{
+                        name: 'Test User',
+                        phone: '700123456',
+                        country_code: '+93',
+                        location: 'Test Location'
+                    }])
+                    .select()
+                
+                if (error) {
+                    result.innerHTML = `<p style="color: red;">❌ Insert Error: ${error.message}</p><pre>${JSON.stringify(error, null, 2)}</pre>`
+                } else {
+                    result.innerHTML = `<p style="color: green;">✅ Customer inserted successfully!</p><pre>${JSON.stringify(data, null, 2)}</pre>`
+                }
+            } catch (err) {
+                result.innerHTML = `<p style="color: red;">❌ Error: ${err.message}</p>`
+            }
+        }
+    </script>
+</body>
+</html>

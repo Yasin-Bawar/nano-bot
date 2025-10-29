@@ -1,0 +1,33 @@
+"use client"
+
+import { useRef } from "react"
+import { motion, useScroll, useTransform } from "framer-motion"
+
+export function ScrollZoomSection() {
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  })
+
+  const scale = useTransform(scrollYProgress, [0, 0.5], [0.8, 1.2])
+  const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1])
+
+  return (
+    <section ref={containerRef} className="relative min-h-screen bg-black flex items-center justify-center py-20">
+      <motion.div
+        style={{ scale, opacity }}
+        className="w-full max-w-4xl px-8"
+      >
+        <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
+          <img
+            src="/images/IMG-20251021-WA0010.jpg"
+            alt="Electric Motorcycle in Action"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </motion.div>
+    </section>
+  )
+}
