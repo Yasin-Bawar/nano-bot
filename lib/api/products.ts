@@ -24,19 +24,52 @@ export async function getProducts(category?: string) {
 
 // Get featured products
 export async function getFeaturedProducts() {
+  // First, get the list of featured product IDs from home settings
+  const { data: featuredData, error: featuredError } = await supabase
+    .from('home_featured_products')
+    .select('product_id')
+    .order('order_index', { ascending: true })
+
+  if (featuredError && featuredError.code !== "42P01" && featuredError.code !== "PGRST116") {
+    console.error('Error fetching featured product IDs:', featuredError)
+  }
+
+  const featuredProductIds = featuredData?.map(fp => fp.product_id) || []
+
+  // If no featured products are selected, fall back to products marked as featured
+  if (featuredProductIds.length === 0) {
+    const { data, error } = await supabase
+      .from('products')
+      .select('*')
+      .eq('featured', true)
+      .eq('in_stock', true)
+      .limit(6)
+
+    if (error) {
+      console.error('Error fetching featured products:', error)
+      return []
+    }
+
+    return data as Product[]
+  }
+
+  // Get the actual products based on the featured IDs
   const { data, error } = await supabase
     .from('products')
     .select('*')
-    .eq('featured', true)
-    .eq('in_stock', true)
-    .limit(6)
+    .in('id', featuredProductIds)
 
   if (error) {
     console.error('Error fetching featured products:', error)
     return []
   }
 
-  return data as Product[]
+  // Sort products to match the order in featuredProductIds
+  const sortedProducts = featuredProductIds
+    .map(id => data?.find(p => p.id === id))
+    .filter(Boolean) as Product[]
+
+  return sortedProducts
 }
 
 // Get single product with all details

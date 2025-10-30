@@ -5,9 +5,25 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react"
 
 interface ContactMapSectionProps {
   language: "pashto" | "dari"
+  settings?: {
+    title_dari: string
+    title_pashto: string
+    subtitle_dari: string
+    subtitle_pashto: string
+    address_dari: string
+    address_pashto: string
+    address_detail_dari: string
+    address_detail_pashto: string
+    phone: string
+    email: string
+    hours_dari: string
+    hours_pashto: string
+    hours_detail_dari: string
+    hours_detail_pashto: string
+  }
 }
 
-const translations = {
+const defaultTranslations = {
   pashto: {
     title: "زموږ سره اړیکه ونیسئ",
     subtitle: "موږ ستاسو د خدمت لپاره دلته یو",
@@ -34,8 +50,21 @@ const translations = {
   },
 }
 
-export function ContactMapSection({ language }: ContactMapSectionProps) {
-  const t = translations[language]
+export function ContactMapSection({ language, settings }: ContactMapSectionProps) {
+  const defaults = defaultTranslations[language]
+  
+  const t = {
+    title: language === "dari" ? (settings?.title_dari || defaults.title) : (settings?.title_pashto || defaults.title),
+    subtitle: language === "dari" ? (settings?.subtitle_dari || defaults.subtitle) : (settings?.subtitle_pashto || defaults.subtitle),
+    address: language === "dari" ? (settings?.address_dari || defaults.address) : (settings?.address_pashto || defaults.address),
+    addressDetail: language === "dari" ? (settings?.address_detail_dari || defaults.addressDetail) : (settings?.address_detail_pashto || defaults.addressDetail),
+    phone: settings?.phone || defaults.phone,
+    email: settings?.email || defaults.email,
+    hours: language === "dari" ? (settings?.hours_dari || defaults.hours) : (settings?.hours_pashto || defaults.hours),
+    hoursDetail: language === "dari" ? (settings?.hours_detail_dari || defaults.hoursDetail) : (settings?.hours_detail_pashto || defaults.hoursDetail),
+    getDirections: defaults.getDirections,
+    sendMessage: defaults.sendMessage,
+  }
 
   return (
     <section id="contact" className="relative bg-gray-50 py-20">

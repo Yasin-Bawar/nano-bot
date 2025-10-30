@@ -60,8 +60,10 @@ export default function Home() {
       />
       <main>
         <HeroSection language={language} settings={homeSettings?.hero} />
-        <ModelsShowcaseSection language={language} />
-        <ScrollZoomSection />
+        {homeSettings?.show_models_showcase_section !== false && (
+          <ModelsShowcaseSection language={language} models={homeSettings?.model_showcases} />
+        )}
+        <ScrollZoomSection imageUrl={homeSettings?.hero?.scroll_zoom_image_url} />
         {homeSettings?.show_products_section && (
           <ProductsGridSection 
             language={language} 
@@ -77,7 +79,7 @@ export default function Home() {
           <FeaturesShowcaseSection language={language} features={homeSettings.features} />
         )}
         {homeSettings?.show_contact_section && (
-          <ContactMapSection language={language} />
+          <ContactMapSection language={language} settings={homeSettings?.contact} />
         )}
       </main>
       <Footer language={language} />

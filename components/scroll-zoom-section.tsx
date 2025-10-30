@@ -3,7 +3,11 @@
 import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 
-export function ScrollZoomSection() {
+interface ScrollZoomSectionProps {
+  imageUrl?: string
+}
+
+export function ScrollZoomSection({ imageUrl = "/images/IMG-20251021-WA0010.jpg" }: ScrollZoomSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null)
 
   const { scrollYProgress } = useScroll({
@@ -22,7 +26,7 @@ export function ScrollZoomSection() {
       >
         <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
           <img
-            src="/images/IMG-20251021-WA0010.jpg"
+            src={imageUrl}
             alt="Electric Motorcycle in Action"
             className="w-full h-full object-cover"
           />

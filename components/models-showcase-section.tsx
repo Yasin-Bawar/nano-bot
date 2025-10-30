@@ -5,8 +5,20 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { motion, useScroll } from "framer-motion"
 
+interface ModelShowcase {
+  id?: string
+  name: string
+  range: string
+  charge: string
+  speed: string
+  bg_color: string
+  image_url: string
+  order_index: number
+}
+
 interface ModelsShowcaseSectionProps {
   language: "pashto" | "dari"
+  models?: ModelShowcase[]
 }
 
 const translations = {
@@ -32,49 +44,52 @@ const translations = {
   },
 }
 
-const models = [
+const defaultModels: ModelShowcase[] = [
   {
-    id: "sr-s",
     name: "SR/S",
     range: "171",
     charge: "1.1",
     speed: "124",
-    bgColor: "#4A5A6A",
-    image: "/images/bike-blue-silver.png",
+    bg_color: "#4A5A6A",
+    image_url: "/images/bike-blue-silver.png",
+    order_index: 0,
   },
   {
-    id: "sr-f",
     name: "SR/F",
     range: "176",
     charge: "1.1",
     speed: "124",
-    bgColor: "#9B9B8E",
-    image: "/images/bike-blue-sport.png",
+    bg_color: "#9B9B8E",
+    image_url: "/images/bike-blue-sport.png",
+    order_index: 1,
   },
   {
-    id: "s",
     name: "S",
     range: "154",
     charge: "1.3",
     speed: "104",
-    bgColor: "#5DABA8",
-    image: "/images/bike-white-sport.png",
+    bg_color: "#5DABA8",
+    image_url: "/images/bike-white-sport.png",
+    order_index: 2,
   },
   {
-    id: "dsr-x",
     name: "DSR/X",
     range: "180",
     charge: "1.5",
     speed: "112",
-    bgColor: "#2D3E50",
-    image: "/images/bike-white-rounded.png",
+    bg_color: "#2D3E50",
+    image_url: "/images/bike-white-rounded.png",
+    order_index: 3,
   },
 ]
 
-export function ModelsShowcaseSection({ language }: ModelsShowcaseSectionProps) {
+export function ModelsShowcaseSection({ language, models: propModels }: ModelsShowcaseSectionProps) {
   const t = translations[language]
   const containerRef = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
+
+  // Use provided models or fall back to defaults
+  const models = propModels && propModels.length > 0 ? propModels : defaultModels
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -87,7 +102,7 @@ export function ModelsShowcaseSection({ language }: ModelsShowcaseSectionProps) 
       setActiveIndex(index)
     })
     return () => unsubscribe()
-  }, [scrollYProgress])
+  }, [scrollYProgress, models.length])
 
   const activeModel = models[activeIndex]
 
@@ -97,7 +112,7 @@ export function ModelsShowcaseSection({ language }: ModelsShowcaseSectionProps) 
         {/* Background Color */}
         <div
           className="absolute inset-0 transition-colors duration-700"
-          style={{ backgroundColor: activeModel.bgColor }}
+          style={{ backgroundColor: activeModel.bg_color }}
         />
 
 
@@ -112,7 +127,7 @@ export function ModelsShowcaseSection({ language }: ModelsShowcaseSectionProps) 
         >
           <div className="w-[400px] lg:w-[500px] h-[300px] lg:h-[400px] flex items-center justify-center">
             <img
-              src={activeModel.image}
+              src={activeModel.image_url}
               alt={activeModel.name}
               className="max-w-full max-h-full object-contain drop-shadow-2xl"
             />
@@ -124,10 +139,10 @@ export function ModelsShowcaseSection({ language }: ModelsShowcaseSectionProps) 
         {/* Right Side - Model Names */}
         <div className="absolute mr-[30%] mt-[5%] lg:right-24 top-1/2 -translate-y-1/2 z-10">
           <div className="space-y-0 text-right">
-            {models.map((model) => (
+            {models.map((model, idx) => (
               <div
-                key={model.id}
-                className={`font-black mt-5 leading-[0.8] tracking-tight uppercase transition-all duration-700 ${model.id === activeModel.id
+                key={model.id || idx}
+                className={`font-black mt-5 leading-[0.8] tracking-tight uppercase transition-all duration-700 ${idx === activeIndex
                   ? "text-white text-[4rem] lg:text-[8rem]"
                   : "text-white/10 text-[2rem] lg:text-[5rem]"
                   }`}

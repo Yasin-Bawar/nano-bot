@@ -305,10 +305,10 @@ CREATE TRIGGER update_home_section_settings_updated_at
 -- STEP 8: CREATE STORAGE BUCKET
 -- =====================================================
 
--- Create storage bucket for home page images
+-- Create storage bucket for images
 INSERT INTO storage.buckets (id, name, public)
-VALUES ('home-images', 'home-images', true)
-ON CONFLICT (id) DO NOTHING;
+VALUES ('images', 'images', true)
+ON CONFLICT (id) DO UPDATE SET public = true;
 
 -- =====================================================
 -- STEP 9: CREATE STORAGE POLICIES

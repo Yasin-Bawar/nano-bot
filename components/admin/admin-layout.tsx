@@ -125,7 +125,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
   }
 
   return (
-    <div className="min-h-screen bg-white flex flex-col" dir="ltr">
+    <div className="h-screen bg-white overflow-hidden" dir="ltr">
       {/* Mobile backdrop */}
       {sidebarOpen && (
         <div
@@ -203,11 +203,8 @@ export function AdminLayout({ children }: AdminLayoutProps) {
           </button>
         </div>
       </aside>
-
-      {/* Main Content */}
-      <div className="lg:mr-72 flex flex-col min-h-screen" dir="ltr">
-        {/* Header */}
-        <header className="h-20 bg-white border-b border-gray-100 flex items-center justify-between px-8 sticky top-0 z-30 shadow-sm flex-shrink-0" dir="ltr">
+  {/* Header */}
+        <header className="h-20 bg-white border-b border-gray-100 flex items-center justify-between px-8 shrink-0" dir="ltr">
           <div className="flex items-center gap-6 flex-row-reverse">
             <button
               onClick={() => setSidebarOpen(true)}
@@ -308,9 +305,23 @@ export function AdminLayout({ children }: AdminLayoutProps) {
             </div>
           </div>
         </header>
+      {/* Main Content */}
+      <div className="lg:mr-72 h-screen flex flex-col" dir="ltr">
+      
 
         {/* Page Content */}
-        <main className="flex-1 p-8 bg-gray-50/50 overflow-y-auto">{children}</main>
+        <main 
+          className="flex-1 p-8 bg-gray-50/50 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100" 
+          style={{ 
+            overflowY: 'scroll', 
+            overflowX: 'hidden',
+            height: 'calc(100vh - 5rem)',
+            WebkitOverflowScrolling: 'touch',
+            scrollbarWidth: 'thin'
+          }}
+        >
+          {children}
+        </main>
       </div>
 
       {/* Search Modal */}
