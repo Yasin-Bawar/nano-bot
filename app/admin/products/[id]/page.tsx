@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { useRouter, useParams } from "next/navigation"
-import AdminLayout from "@/components/admin/admin-layout"
+import { AdminLayout } from "@/components/admin/admin-layout"
 import { ArrowRight, Edit, Trash2, Package, Star, Box, Tag, Image as ImageIcon, DollarSign } from "lucide-react"
 import { supabase } from "@/lib/supabase"
 import { motion } from "framer-motion"

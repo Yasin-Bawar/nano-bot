@@ -5,11 +5,26 @@ import { Button } from "@/components/ui/button"
 import { ChevronDown, ArrowRight, Zap, Battery, Gauge } from "lucide-react"
 import { motion, useScroll, useTransform } from "framer-motion"
 
-interface HeroSectionProps {
-  language: "pashto" | "dari"
+interface HeroSettings {
+  tagline_dari?: string
+  tagline_pashto?: string
+  subtitle_dari?: string
+  subtitle_pashto?: string
+  image_url?: string
+  range_value?: string
+  speed_value?: string
+  charge_value?: string
+  colors?: string[]
+  cta_text_dari?: string
+  cta_text_pashto?: string
 }
 
-const translations = {
+interface HeroSectionProps {
+  language: "pashto" | "dari"
+  settings?: HeroSettings
+}
+
+const defaultTranslations = {
   pashto: {
     tagline: "د بریښنایی سواری راتلونکی",
     subtitle: "د افغانستان لپاره ډیزاین شوی - پاک، خاموش، ځواکمن",
@@ -42,8 +57,27 @@ const translations = {
   },
 }
 
-export function HeroSection({ language }: HeroSectionProps) {
-  const t = translations[language]
+export function HeroSection({ language, settings }: HeroSectionProps) {
+  const defaults = defaultTranslations[language]
+  
+  const t = {
+    tagline: language === "dari" ? (settings?.tagline_dari || defaults.tagline) : (settings?.tagline_pashto || defaults.tagline),
+    subtitle: language === "dari" ? (settings?.subtitle_dari || defaults.subtitle) : (settings?.subtitle_pashto || defaults.subtitle),
+    range: settings?.range_value || defaults.range,
+    rangeUnit: defaults.rangeUnit,
+    rangeLabel: defaults.rangeLabel,
+    speed: settings?.speed_value || defaults.speed,
+    speedUnit: defaults.speedUnit,
+    speedLabel: defaults.speedLabel,
+    charge: settings?.charge_value || defaults.charge,
+    chargeUnit: defaults.chargeUnit,
+    chargeLabel: defaults.chargeLabel,
+    exploreModels: language === "dari" ? (settings?.cta_text_dari || defaults.exploreModels) : (settings?.cta_text_pashto || defaults.exploreModels),
+    colorsAvailable: defaults.colorsAvailable,
+  }
+  
+  const colors = settings?.colors || ["#000000", "#DC2626", "#2563EB", "#FFFFFF", "#9CA3AF", "#1F2937"]
+  const heroImage = settings?.image_url || "/images/hero.jpg"
   const containerRef = useRef<HTMLElement>(null)
 
   const { scrollYProgress } = useScroll({
@@ -65,7 +99,7 @@ export function HeroSection({ language }: HeroSectionProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30 z-10" />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent z-10" />
         <img
-          src="/images/hero.jpg"
+          src={heroImage}
           alt="Electric Motorcycle"
           className="w-full h-full object-cover object-top"
           style={{ objectPosition: 'center top' }}
@@ -136,7 +170,7 @@ export function HeroSection({ language }: HeroSectionProps) {
               className="flex items-center justify-end gap-3"
             >
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-2">
-                {["#000000", "#DC2626", "#2563EB", "#FFFFFF", "#9CA3AF", "#1F2937"].map((color, i) => (
+                {colors.map((color, i) => (
                   <motion.div
                     key={i}
                     initial={{ opacity: 0, scale: 0 }}

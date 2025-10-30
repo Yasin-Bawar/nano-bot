@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import AdminLayout from "@/components/admin/admin-layout"
+import { AdminLayout } from "@/components/admin/admin-layout"
 import { 
   Users, ShoppingBag, MessageCircle, DollarSign, TrendingUp, TrendingDown, 
   Package, Calendar, Eye, Activity, BarChart3, PieChart, ArrowUpRight, 

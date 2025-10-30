@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import AdminLayout from "@/components/admin/admin-layout"
+import { AdminLayout } from "@/components/admin/admin-layout"
 import { TrendingUp, TrendingDown, DollarSign, ShoppingBag, Users, Package, BarChart3, PieChart, Activity } from "lucide-react"
 import { getAnalytics } from "@/lib/api/admin"
 

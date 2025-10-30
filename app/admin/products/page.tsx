@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import AdminLayout from "@/components/admin/admin-layout"
+import { AdminLayout } from "@/components/admin/admin-layout"
 import { Search, Package, Star, Eye, Edit, Trash2 } from "lucide-react"
 import { getProducts } from "@/lib/api/products"
 import { supabase } from "@/lib/supabase"

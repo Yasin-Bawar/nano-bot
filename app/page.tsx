@@ -16,18 +16,28 @@ import { DealershipSection } from "@/components/dealership-section"
 import { Footer } from "@/components/footer"
 import { Navigation } from "@/components/navigation"
 import { LoadingScreen } from "@/components/loading-screen"
+import { getHomeSettings, HomeSettings } from "@/lib/api/home-settings"
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
   const [language, setLanguage] = useState<"pashto" | "dari">("dari")
   const [openChat, setOpenChat] = useState<(() => void) | null>(null)
+  const [homeSettings, setHomeSettings] = useState<HomeSettings | null>(null)
 
   useEffect(() => {
-    // Simulate loading screen
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 2500)
-    return () => clearTimeout(timer)
+    async function loadData() {
+      try {
+        const settings = await getHomeSettings()
+        setHomeSettings(settings)
+      } catch (error) {
+        console.error("Error loading home settings:", error)
+      } finally {
+        setTimeout(() => {
+          setIsLoading(false)
+        }, 2500)
+      }
+    }
+    loadData()
   }, [])
 
   // Prevent auto-opening by ensuring openChat is only set once
@@ -49,17 +59,26 @@ export default function Home() {
         onOpenChat={() => openChat && openChat()}
       />
       <main>
-        <HeroSection language={language} />
+        <HeroSection language={language} settings={homeSettings?.hero} />
         <ModelsShowcaseSection language={language} />
         <ScrollZoomSection />
-        <ProductsGridSection language={language} />
-        <FeaturesShowcaseSection language={language} />
-        <ContactMapSection language={language} />
-        {/* <RotatingShowcaseSection language={language} />
-        <AccessoriesSection language={language} />
-        <TechnologySection language={language} />
-        <SustainabilitySection language={language} />
-        <DealershipSection language={language} /> */}
+        {homeSettings?.show_products_section && (
+          <ProductsGridSection 
+            language={language} 
+            settings={{
+              title_dari: homeSettings.products_title_dari,
+              title_pashto: homeSettings.products_title_pashto,
+              subtitle_dari: homeSettings.products_subtitle_dari,
+              subtitle_pashto: homeSettings.products_subtitle_pashto
+            }}
+          />
+        )}
+        {homeSettings?.show_features_section && (
+          <FeaturesShowcaseSection language={language} features={homeSettings.features} />
+        )}
+        {homeSettings?.show_contact_section && (
+          <ContactMapSection language={language} />
+        )}
       </main>
       <Footer language={language} />
       <LiveChat language={language} onOpenRef={handleSetOpenChat} />

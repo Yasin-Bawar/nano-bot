@@ -15,7 +15,8 @@ import {
   X,
   Shield,
   Bell,
-  Search
+  Search,
+  Home
 } from "lucide-react"
 import Link from "next/link"
 import { getAdminSession, logoutAdmin } from "@/lib/admin-auth"
@@ -26,6 +27,7 @@ interface AdminLayoutProps {
 
 const navigation = [
   { name: "داشبورد", href: "/admin/dashboard", icon: LayoutDashboard },
+  { name: "تنظیمات صفحه اصلی", href: "/admin/home-settings", icon: Home },
   { name: "مشتریان", href: "/admin/customers", icon: Users },
   { name: "سفارشات", href: "/admin/orders", icon: ShoppingBag },
   { name: "پیام‌ها", href: "/admin/messages", icon: MessageCircle },
@@ -34,7 +36,7 @@ const navigation = [
   { name: "تنظیمات", href: "/admin/settings", icon: Settings },
 ]
 
-export default function AdminLayout({ children }: AdminLayoutProps) {
+export function AdminLayout({ children }: AdminLayoutProps) {
   const router = useRouter()
   const pathname = usePathname()
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -123,7 +125,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
   }
 
   return (
-    <div className="min-h-screen bg-white" dir="ltr">
+    <div className="min-h-screen bg-white flex flex-col" dir="ltr">
       {/* Mobile backdrop */}
       {sidebarOpen && (
         <div
@@ -203,9 +205,9 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
       </aside>
 
       {/* Main Content */}
-      <div className="lg:mr-72" dir="ltr">
+      <div className="lg:mr-72 flex flex-col min-h-screen" dir="ltr">
         {/* Header */}
-        <header className="h-20 bg-white border-b border-gray-100 flex items-center justify-between px-8 sticky top-0 z-30 shadow-sm" dir="ltr">
+        <header className="h-20 bg-white border-b border-gray-100 flex items-center justify-between px-8 sticky top-0 z-30 shadow-sm flex-shrink-0" dir="ltr">
           <div className="flex items-center gap-6 flex-row-reverse">
             <button
               onClick={() => setSidebarOpen(true)}
@@ -308,7 +310,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
         </header>
 
         {/* Page Content */}
-        <main className="p-8 bg-gray-50/50 min-h-[calc(100vh-5rem)]" dir="ltr">{children}</main>
+        <main className="flex-1 p-8 bg-gray-50/50 overflow-y-auto">{children}</main>
       </div>
 
       {/* Search Modal */}

@@ -9,9 +9,15 @@ import { Product } from "@/lib/supabase"
 
 interface ProductsGridSectionProps {
   language: "pashto" | "dari"
+  settings?: {
+    title_dari: string
+    title_pashto: string
+    subtitle_dari: string
+    subtitle_pashto: string
+  }
 }
 
-const translations = {
+const defaultTranslations = {
   pashto: {
     title: "زموږ محصولات",
     subtitle: "بریښنایی موټرسایکلونه او برخې",
@@ -24,8 +30,14 @@ const translations = {
   },
 }
 
-export function ProductsGridSection({ language }: ProductsGridSectionProps) {
-  const t = translations[language]
+export function ProductsGridSection({ language, settings }: ProductsGridSectionProps) {
+  const defaults = defaultTranslations[language]
+  
+  const t = {
+    title: language === "dari" ? (settings?.title_dari || defaults.title) : (settings?.title_pashto || defaults.title),
+    subtitle: language === "dari" ? (settings?.subtitle_dari || defaults.subtitle) : (settings?.subtitle_pashto || defaults.subtitle),
+    addToCart: defaults.addToCart,
+  }
   const [products, setProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
 

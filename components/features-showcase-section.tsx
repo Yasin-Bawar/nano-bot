@@ -4,111 +4,141 @@ import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { Battery, Zap, Gauge, Shield, Wifi, Leaf } from "lucide-react"
 
+interface FeatureItem {
+  title_dari: string
+  title_pashto: string
+  title_en: string
+  description_dari: string
+  description_pashto: string
+  stat: string
+  icon: string
+  order_index: number
+}
+
 interface FeaturesShowcaseSectionProps {
   language: "pashto" | "dari"
+  features?: FeatureItem[]
 }
 
-const translations = {
-  pashto: {
-    title: "ځانګړتیاوې",
-    subtitle: "د راتلونکي لپاره ډیزاین شوی",
-    features: [
-      {
-        icon: Battery,
-        title: "اوږد واټن",
-        titleEn: "LONG RANGE",
-        description: "تر 220 کیلومتره پورې د یو چارج سره",
-        stat: "220km",
-      },
-      {
-        icon: Zap,
-        title: "چټک چارج",
-        titleEn: "FAST CHARGING",
-        description: "په 1 ساعت کې بشپړ چارج",
-        stat: "1hr",
-      },
-      {
-        icon: Gauge,
-        title: "لوړ سرعت",
-        titleEn: "HIGH SPEED",
-        description: "تر 180 کیلومتره/ساعت پورې",
-        stat: "180km/h",
-      },
-      {
-        icon: Shield,
-        title: "خوندیتوب",
-        titleEn: "SAFETY",
-        description: "پرمختللي ABS او ټریکشن کنټرول",
-        stat: "ABS",
-      },
-      {
-        icon: Wifi,
-        title: "سمارټ",
-        titleEn: "SMART TECH",
-        description: "د موبایل اپلیکیشن سره وصل",
-        stat: "IoT",
-      },
-      {
-        icon: Leaf,
-        title: "پاک",
-        titleEn: "ECO FRIENDLY",
-        description: "صفر اخراج، پاک چاپیریال",
-        stat: "0%",
-      },
-    ],
-  },
-  dari: {
-    title: "ویژگی‌ها",
-    subtitle: "طراحی شده برای آینده",
-    features: [
-      {
-        icon: Battery,
-        title: "برد طولانی",
-        titleEn: "LONG RANGE",
-        description: "تا 220 کیلومتر با یک شارژ",
-        stat: "220km",
-      },
-      {
-        icon: Zap,
-        title: "شارژ سریع",
-        titleEn: "FAST CHARGING",
-        description: "شارژ کامل در 1 ساعت",
-        stat: "1hr",
-      },
-      {
-        icon: Gauge,
-        title: "سرعت بالا",
-        titleEn: "HIGH SPEED",
-        description: "تا 180 کیلومتر در ساعت",
-        stat: "180km/h",
-      },
-      {
-        icon: Shield,
-        title: "ایمنی",
-        titleEn: "SAFETY",
-        description: "ABS پیشرفته و کنترل کشش",
-        stat: "ABS",
-      },
-      {
-        icon: Wifi,
-        title: "فناوری هوشمند",
-        titleEn: "SMART TECH",
-        description: "متصل به اپلیکیشن موبایل",
-        stat: "IoT",
-      },
-      {
-        icon: Leaf,
-        title: "سازگار با محیط زیست",
-        titleEn: "ECO FRIENDLY",
-        description: "صفر انتشار، محیط زیست پاک",
-        stat: "0%",
-      },
-    ],
-  },
+const iconMap: Record<string, any> = {
+  Battery,
+  Zap,
+  Gauge,
+  Shield,
+  Wifi,
+  Leaf
 }
 
-export function FeaturesShowcaseSection({ language }: FeaturesShowcaseSectionProps) {
-  const t = translations[language]
+const defaultFeatures = {
+  pashto: [
+    {
+      icon: "Battery",
+      title: "اوږد واټن",
+      titleEn: "LONG RANGE",
+      description: "تر 220 کیلومتره پورې د یو چارج سره",
+      stat: "220km",
+    },
+    {
+      icon: "Zap",
+      title: "چټک چارج",
+      titleEn: "FAST CHARGING",
+      description: "په 1 ساعت کې بشپړ چارج",
+      stat: "1hr",
+    },
+    {
+      icon: "Gauge",
+      title: "لوړ سرعت",
+      titleEn: "HIGH SPEED",
+      description: "تر 180 کیلومتره/ساعت پورې",
+      stat: "180km/h",
+    },
+    {
+      icon: "Shield",
+      title: "خوندیتوب",
+      titleEn: "SAFETY",
+      description: "پرمختللي ABS او ټریکشن کنټرول",
+      stat: "ABS",
+    },
+    {
+      icon: "Wifi",
+      title: "سمارټ",
+      titleEn: "SMART TECH",
+      description: "د موبایل اپلیکیشن سره وصل",
+      stat: "IoT",
+    },
+    {
+      icon: "Leaf",
+      title: "پاک",
+      titleEn: "ECO FRIENDLY",
+      description: "صفر اخراج، پاک چاپیریال",
+      stat: "0%",
+    },
+  ],
+  dari: [
+    {
+      icon: "Battery",
+      title: "برد طولانی",
+      titleEn: "LONG RANGE",
+      description: "تا 220 کیلومتر با یک شارژ",
+      stat: "220km",
+    },
+    {
+      icon: "Zap",
+      title: "شارژ سریع",
+      titleEn: "FAST CHARGING",
+      description: "شارژ کامل در 1 ساعت",
+      stat: "1hr",
+    },
+    {
+      icon: "Gauge",
+      title: "سرعت بالا",
+      titleEn: "HIGH SPEED",
+      description: "تا 180 کیلومتر در ساعت",
+      stat: "180km/h",
+    },
+    {
+      icon: "Shield",
+      title: "ایمنی",
+      titleEn: "SAFETY",
+      description: "ABS پیشرفته و کنترل کشش",
+      stat: "ABS",
+    },
+    {
+      icon: "Wifi",
+      title: "فناوری هوشمند",
+      titleEn: "SMART TECH",
+      description: "متصل به اپلیکیشن موبایل",
+      stat: "IoT",
+    },
+    {
+      icon: "Leaf",
+      title: "سازگار با محیط زیست",
+      titleEn: "ECO FRIENDLY",
+      description: "صفر انتشار، محیط زیست پاک",
+      stat: "0%",
+    },
+  ],
+}
+
+export function FeaturesShowcaseSection({ language, features }: FeaturesShowcaseSectionProps) {
+  const displayFeatures = features && features.length > 0 
+    ? features.map(f => ({
+        icon: iconMap[f.icon] || Battery,
+        title: language === "dari" ? f.title_dari : f.title_pashto,
+        titleEn: f.title_en,
+        description: language === "dari" ? f.description_dari : f.description_pashto,
+        stat: f.stat
+      }))
+    : defaultFeatures[language].map(f => ({
+        ...f,
+        icon: iconMap[f.icon] || Battery
+      }))
+  
+  const t = {
+    title: language === "pashto" ? "ځانګړتیاوې" : "ویژگی‌ها",
+    subtitle: language === "pashto" ? "د راتلونکي لپاره ډیزاین شوی" : "طراحی شده برای آینده",
+    features: displayFeatures
+  }
   const containerRef = useRef<HTMLDivElement>(null)
 
   const { scrollYProgress } = useScroll({
