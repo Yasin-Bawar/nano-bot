@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense } from "react"
 import { motion } from "framer-motion"
 import { MapPin, Phone, User, Loader2 } from "lucide-react"
 import { useRouter, useSearchParams } from "next/navigation"
@@ -8,7 +8,7 @@ import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 
-export default function CheckoutPage() {
+function CheckoutForm() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [language, setLanguage] = useState<"pashto" | "dari">("dari")
@@ -385,5 +385,17 @@ export default function CheckoutPage() {
 
       <Footer language={language} />
     </div>
+  )
+}
+
+export default function CheckoutPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+      </div>
+    }>
+      <CheckoutForm />
+    </Suspense>
   )
 }
