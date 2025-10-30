@@ -1,6 +1,8 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+export const dynamic = 'force-dynamic'
+
+import { useState, useEffect, useRef, Suspense } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Send, ArrowLeft, Phone, MapPin, User, Package, X } from "lucide-react"
 import { useRouter, useSearchParams } from "next/navigation"
@@ -133,7 +135,7 @@ function ProductQuickSelect({ language, onProductSelect, showProducts, setShowPr
   )
 }
 
-export default function MessagingPage() {
+function MessagingContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [language, setLanguage] = useState<"pashto" | "dari">("dari")
@@ -676,5 +678,17 @@ export default function MessagingPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function MessagingPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+      </div>
+    }>
+      <MessagingContent />
+    </Suspense>
   )
 }
