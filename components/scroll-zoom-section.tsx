@@ -19,7 +19,7 @@ export function ScrollZoomSection({ imageUrl = "/images/IMG-20251021-WA0010.jpg"
   const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1])
 
   return (
-    <section ref={containerRef} className="relative min-h-screen bg-black flex items-center justify-center py-20">
+    <section ref={containerRef} className="relative min-h-screen bg-black flex items-center justify-center">
       <motion.div
         style={{ scale, opacity }}
         className="w-full max-w-4xl px-8"

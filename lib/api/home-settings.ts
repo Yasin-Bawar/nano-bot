@@ -305,17 +305,17 @@ export async function updateHomeSettings(settings: HomeSettings): Promise<void> 
       }
     }
 
-    // Delete existing model showcases and insert new ones
+    console.log("Step 5: Deleting old model showcases...")
+    // Delete ALL existing model showcases
     const { error: deleteModelsError } = await supabase
       .from("home_models_showcase")
       .delete()
-      .neq("id", "00000000-0000-0000-0000-000000000000") // Delete all
+      .gte("order_index", 0) // This will match all records
 
     if (deleteModelsError && deleteModelsError.code !== "42P01") {
-      console.warn("Could not delete model showcases:", deleteModelsError)
-      if (deleteModelsError.code === "42P01") {
-        console.error("❌ Table 'home_models_showcase' does not exist! Please run add-models-showcase.sql")
-      }
+      console.error("Could not delete model showcases:", deleteModelsError)
+    } else {
+      console.log("✅ Old model showcases deleted")
     }
 
     console.log("Step 5: Inserting model showcases...")

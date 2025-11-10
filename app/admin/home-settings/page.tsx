@@ -1016,9 +1016,9 @@ export default function HomeSettingsPage() {
                   <div className="space-y-6">
                     {settings.features.map((feature, index) => (
                       <Card key={index} className="border-2 border-gray-100 shadow-lg hover:shadow-xl transition-shadow">
-                  
+
                         <CardContent className="p-6 space-y-6">
-                           <div className="flex justify-between items-center">
+                          <div className="flex justify-between items-center">
                             <CardTitle className="text-right text-xl flex items-center gap-3">
                               <div className="bg-primary/10 p-2 rounded-lg">
                                 <Star className="w-5 h-5 text-primary" />
@@ -1177,9 +1177,9 @@ export default function HomeSettingsPage() {
                   <div className="space-y-6">
                     {settings.showcase_features?.map((feature, index) => (
                       <Card key={index} className="border-2 border-gray-100 shadow-lg hover:shadow-xl transition-shadow">
-                     
+
                         <CardContent className="p-6 space-y-6">
-                                <div className="flex justify-between items-center">
+                          <div className="flex justify-between items-center">
                             <CardTitle className="text-right text-xl flex items-center gap-3">
                               <div className="bg-primary/10 p-2 rounded-lg">
                                 <Package className="w-5 h-5 text-primary" />
@@ -1312,7 +1312,7 @@ export default function HomeSettingsPage() {
             {activeTab === "products" && (
               <div className="space-y-8">
                 <Card className="shadow-lg border-0">
-            
+
                   <CardContent className="p-8 space-y-8">
                     <div className="grid md:grid-cols-2 gap-8">
                       <div className="space-y-4">
@@ -1384,7 +1384,7 @@ export default function HomeSettingsPage() {
 
                 {/* Product Selector */}
                 <Card className="shadow-lg border-0">
-              
+
                   <CardContent className="p-8">
                     {loadingProducts ? (
                       <div className="text-center py-12">
@@ -1472,7 +1472,7 @@ export default function HomeSettingsPage() {
             {/* Contact Tab */}
             {activeTab === "contact" && (
               <Card className="shadow-lg border-0">
-           
+
                 <CardContent className="p-8 space-y-8">
                   {/* Titles */}
                   <div className="grid md:grid-cols-2 gap-8">
