@@ -60,7 +60,7 @@ AND table_name LIKE 'home_%';
 ```
 
 ### Step 3: Access Admin Panel
-Navigate to: `http://your-domain.com/admin/home-settings`
+Navigate to: `http://your-domain.com/x9k2m7p4q8w5n3j6/home-settings`
 
 ## 🎨 How to Use
 

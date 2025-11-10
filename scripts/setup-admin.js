@@ -87,7 +87,7 @@ const testScript = `
 // Run this in your browser console on /admin page
 
 // Test admin login
-fetch('/api/admin/login', {
+fetch('/api/x9k2m7p4q8w5n3j6/login', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({

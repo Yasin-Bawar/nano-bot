@@ -10,7 +10,7 @@ A **complete web builder-style editor** for your website's home page. Edit every
 
 ### 1. Admin Interface
 ```
-app/admin/home-settings/page.tsx
+app/x9k2m7p4q8w5n3j6/home-settings/page.tsx
 ```
 - Full-featured editor with 4 tabs
 - Image upload functionality
@@ -50,7 +50,7 @@ app/page.tsx                              - Loads dynamic settings
 components/hero-section.tsx               - Dynamic hero content
 components/features-showcase-section.tsx  - Dynamic features
 components/products-grid-section.tsx      - Dynamic titles
-components/admin/admin-layout.tsx         - Added navigation link
+components/x9k2m7p4q8w5n3j6/admin-layout.tsx         - Added navigation link
 ```
 
 ---
@@ -183,7 +183,7 @@ Tracks all changes
 
 ### 2. Access Admin
 ```
-http://localhost:3000/admin/home-settings
+http://localhost:3000/x9k2m7p4q8w5n3j6/home-settings
 ```
 
 ### 3. Start Editing!
@@ -426,7 +426,7 @@ You now have a **fully functional home page editor**!
 
 ### Admin URL:
 ```
-http://localhost:3000/admin/home-settings
+http://localhost:3000/x9k2m7p4q8w5n3j6/home-settings
 ```
 
 ### Home Page URL:
@@ -467,7 +467,7 @@ http://localhost:3000/
 - **Documentation:** See all .md files
 - **SQL Schema:** home-settings-schema.sql
 - **API Reference:** lib/api/home-settings.ts
-- **Admin Page:** app/admin/home-settings/page.tsx
+- **Admin Page:** app/x9k2m7p4q8w5n3j6/home-settings/page.tsx
 
 ---
 

@@ -27,7 +27,7 @@ Or simply run the file:
 ```
 
 ### Step 2: Test the Features
-1. Open admin panel: `http://localhost:3000/admin/messages`
+1. Open admin panel: `http://localhost:3000/x9k2m7p4q8w5n3j6/messages`
 2. Select a conversation
 3. Try each feature:
    - Click 😊 for emojis
@@ -141,7 +141,7 @@ When you first load the page:
 ## 🎨 Customization
 
 ### Change Notification Sound
-Edit `playNotificationSound()` function in `app/admin/messages/page.tsx`:
+Edit `playNotificationSound()` function in `app/x9k2m7p4q8w5n3j6/messages/page.tsx`:
 ```typescript
 oscillator.frequency.value = 800 // Change frequency
 gainNode.gain.setValueAtTime(0.3, ...) // Change volume

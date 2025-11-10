@@ -91,7 +91,7 @@ http://localhost:3000/admin
 
 3. Navigate to Home Settings:
 ```
-http://localhost:3000/admin/home-settings
+http://localhost:3000/x9k2m7p4q8w5n3j6/home-settings
 ```
 
 ### Step 6: Test Functionality ✨
@@ -177,7 +177,7 @@ http://localhost:3000/
 ### Issue: Admin Page Shows 404
 
 **Solution:** 
-1. Check file exists: `app/admin/home-settings/page.tsx`
+1. Check file exists: `app/x9k2m7p4q8w5n3j6/home-settings/page.tsx`
 2. Restart Next.js dev server
 3. Clear `.next` cache: `rm -rf .next`
 

@@ -67,8 +67,43 @@ export interface ContactSettings {
   hours_detail_pashto: string
 }
 
+export interface HeaderSettings {
+  logo_url: string
+  logo_dark_url: string
+  site_name_dari: string
+  site_name_pashto: string
+  tagline_dari: string
+  tagline_pashto: string
+  show_language_selector: boolean
+  show_search: boolean
+  sticky_header: boolean
+}
+
+export interface FooterSettings {
+  company_name_dari: string
+  company_name_pashto: string
+  description_dari: string
+  description_pashto: string
+  logo_url: string
+  address_dari: string
+  address_pashto: string
+  phone: string
+  email: string
+  facebook_url: string
+  instagram_url: string
+  twitter_url: string
+  youtube_url: string
+  whatsapp_number: string
+  copyright_text_dari: string
+  copyright_text_pashto: string
+  show_social_links: boolean
+  show_newsletter: boolean
+}
+
 export interface HomeSettings {
   hero: HeroSettings
+  header: HeaderSettings
+  footer: FooterSettings
   features: FeatureItem[]
   showcase_features: ShowcaseFeature[]
   model_showcases: ModelShowcase[]
@@ -170,6 +205,26 @@ export async function getHomeSettings(): Promise<HomeSettings> {
       console.warn("Contact settings table may not exist yet:", contactError)
     }
 
+    // Get header settings
+    const { data: headerData, error: headerError } = await supabase
+      .from("header_settings")
+      .select("*")
+      .single()
+
+    if (headerError && headerError.code !== "PGRST116") {
+      console.warn("Header settings table may not exist yet:", headerError)
+    }
+
+    // Get footer settings
+    const { data: footerData, error: footerError } = await supabase
+      .from("footer_settings")
+      .select("*")
+      .single()
+
+    if (footerError && footerError.code !== "PGRST116") {
+      console.warn("Footer settings table may not exist yet:", footerError)
+    }
+
     // Return default values if no data exists
     return {
       hero: heroData || {
@@ -185,6 +240,37 @@ export async function getHomeSettings(): Promise<HomeSettings> {
         colors: ["#000000", "#DC2626", "#2563EB", "#FFFFFF", "#9CA3AF", "#1F2937"],
         cta_text_dari: "مشاهده مدل‌ها",
         cta_text_pashto: "ماډلونه وګورئ"
+      },
+      header: headerData || {
+        logo_url: "/images/logo.png",
+        logo_dark_url: "",
+        site_name_dari: "موتورسیکلت‌های برقی",
+        site_name_pashto: "بریښنایی موټرسایکلونه",
+        tagline_dari: "آینده سواری الکتریکی",
+        tagline_pashto: "د بریښنایی سواری راتلونکی",
+        show_language_selector: true,
+        show_search: true,
+        sticky_header: true
+      },
+      footer: footerData || {
+        company_name_dari: "موتورسیکلت‌های برقی افغانستان",
+        company_name_pashto: "د افغانستان بریښنایی موټرسایکلونه",
+        description_dari: "ما بهترین موتورسیکلت‌های برقی را فراهم می‌کنیم",
+        description_pashto: "موږ غوره بریښنایی موټرسایکلونه چمتو کوو",
+        logo_url: "/images/logo.png",
+        address_dari: "شهر هرات، افغانستان",
+        address_pashto: "د هرات ښار، افغانستان",
+        phone: "+93 799 123 456",
+        email: "info@electricbikes.af",
+        facebook_url: "",
+        instagram_url: "",
+        twitter_url: "",
+        youtube_url: "",
+        whatsapp_number: "",
+        copyright_text_dari: "© 2024 تمامی حقوق محفوظ است",
+        copyright_text_pashto: "© 2024 ټول حقونه خوندي دي",
+        show_social_links: true,
+        show_newsletter: true
       },
       features: featuresData || [],
       showcase_features: showcaseData || [],
@@ -391,6 +477,38 @@ export async function updateHomeSettings(settings: HomeSettings): Promise<void> 
       console.warn("Could not update contact settings:", contactError)
     } else {
       console.log("✅ Contact settings updated")
+    }
+
+    console.log("Step 8: Updating header settings...")
+    // Update header settings
+    const { error: headerError } = await supabase
+      .from("header_settings")
+      .upsert({
+        id: 1,
+        ...settings.header,
+        updated_at: new Date().toISOString()
+      })
+
+    if (headerError && headerError.code !== "42P01") {
+      console.warn("Could not update header settings:", headerError)
+    } else {
+      console.log("✅ Header settings updated")
+    }
+
+    console.log("Step 9: Updating footer settings...")
+    // Update footer settings
+    const { error: footerError } = await supabase
+      .from("footer_settings")
+      .upsert({
+        id: 1,
+        ...settings.footer,
+        updated_at: new Date().toISOString()
+      })
+
+    if (footerError && footerError.code !== "42P01") {
+      console.warn("Could not update footer settings:", footerError)
+    } else {
+      console.log("✅ Footer settings updated")
     }
 
     // Update visibility settings

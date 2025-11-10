@@ -20,7 +20,7 @@ A full-featured, Farsi/Dari admin interface for editing your website's home page
 ### Files Created
 
 #### Admin Interface
-- `app/admin/home-settings/page.tsx` - Main admin page
+- `app/x9k2m7p4q8w5n3j6/home-settings/page.tsx` - Main admin page
 
 #### API Layer
 - `lib/api/home-settings.ts` - API functions
@@ -43,7 +43,7 @@ A full-featured, Farsi/Dari admin interface for editing your website's home page
 - `components/hero-section.tsx` - Dynamic hero
 - `components/features-showcase-section.tsx` - Dynamic features
 - `components/products-grid-section.tsx` - Dynamic titles
-- `components/admin/admin-layout.tsx` - Added navigation
+- `components/x9k2m7p4q8w5n3j6/admin-layout.tsx` - Added navigation
 - `app/layout.tsx` - Added Toaster
 
 ---
@@ -90,7 +90,7 @@ A full-featured, Farsi/Dari admin interface for editing your website's home page
 
 ### 2. Access Admin Panel
 ```
-http://localhost:3000/admin/home-settings
+http://localhost:3000/x9k2m7p4q8w5n3j6/home-settings
 ```
 
 ### 3. Start Editing
@@ -188,11 +188,11 @@ http://localhost:3000/admin/home-settings
 
 | Resource | URL |
 |----------|-----|
-| Admin Panel | `/admin/home-settings` |
+| Admin Panel | `/x9k2m7p4q8w5n3j6/home-settings` |
 | Home Page | `/` |
-| Dashboard | `/admin/dashboard` |
-| Products | `/admin/products` |
-| Messages | `/admin/messages` |
+| Dashboard | `/x9k2m7p4q8w5n3j6/dashboard` |
+| Products | `/x9k2m7p4q8w5n3j6/products` |
+| Messages | `/x9k2m7p4q8w5n3j6/messages` |
 
 ---
 

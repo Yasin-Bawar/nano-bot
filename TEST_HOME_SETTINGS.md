@@ -37,13 +37,13 @@ The page should show:
 ## If Still Not Working:
 
 ### Check 1: Is the page loading at all?
-Navigate to: `http://localhost:3000/admin/home-settings`
+Navigate to: `http://localhost:3000/x9k2m7p4q8w5n3j6/home-settings`
 
 ### Check 2: Are there console errors?
 Open browser console (F12) and look for red errors
 
 ### Check 3: Is the admin layout working?
-Try visiting another admin page like `/admin/dashboard`
+Try visiting another admin page like `/x9k2m7p4q8w5n3j6/dashboard`
 
 ### Check 4: Restart Development Server
 ```bash

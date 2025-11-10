@@ -386,7 +386,7 @@ BEGIN
   RAISE NOTICE '✨ Default data inserted';
   RAISE NOTICE '';
   RAISE NOTICE '🚀 You can now use the Home Settings page in your admin panel!';
-  RAISE NOTICE '📍 Navigate to: /admin/home-settings';
+  RAISE NOTICE '📍 Navigate to: /x9k2m7p4q8w5n3j6/home-settings';
 END $$;
 
 -- =====================================================

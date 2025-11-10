@@ -50,14 +50,14 @@ export function clearAdminSession() {
 }
 
 // Login admin with API
-export async function loginAdmin(username: string, password: string): Promise<{ success: boolean; user?: any; error?: string }> {
+export async function loginAdmin(username: string, password: string, ipAddress?: string): Promise<{ success: boolean; user?: any; error?: string }> {
   try {
     const response = await fetch('/api/admin/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ username, password, ipAddress }),
     })
 
     const data = await response.json()
@@ -85,7 +85,7 @@ export async function loginAdmin(username: string, password: string): Promise<{ 
 // Logout admin
 export async function logoutAdmin(): Promise<void> {
   try {
-    await fetch('/api/admin/login', {
+    await fetch('/api/x9k2m7p4q8w5n3j6/login', {
       method: 'DELETE',
     })
   } catch (error) {

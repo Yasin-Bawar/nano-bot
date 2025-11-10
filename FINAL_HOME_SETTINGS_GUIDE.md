@@ -15,7 +15,7 @@ Your home page settings system is now **fully functional** with a beautiful **Fa
 4. Paste and click **Run**
 
 ### Step 2: Access Admin Panel
-Navigate to: `http://localhost:3000/admin/home-settings`
+Navigate to: `http://localhost:3000/x9k2m7p4q8w5n3j6/home-settings`
 
 ### Step 3: Start Editing!
 - Edit hero section content
@@ -154,7 +154,7 @@ Navigate to: `http://localhost:3000/admin/home-settings`
 
 ### Admin Interface
 ```
-app/admin/home-settings/page.tsx
+app/x9k2m7p4q8w5n3j6/home-settings/page.tsx
 ```
 
 ### API Layer
@@ -184,7 +184,7 @@ app/page.tsx
 components/hero-section.tsx
 components/features-showcase-section.tsx
 components/products-grid-section.tsx
-components/admin/admin-layout.tsx
+components/x9k2m7p4q8w5n3j6/admin-layout.tsx
 ```
 
 ---
@@ -223,7 +223,7 @@ Before going live, verify:
 
 - [ ] SQL executed successfully in Supabase
 - [ ] All 4 tables created
-- [ ] Admin page loads at `/admin/home-settings`
+- [ ] Admin page loads at `/x9k2m7p4q8w5n3j6/home-settings`
 - [ ] Can edit hero section
 - [ ] Can upload images
 - [ ] Can add features
@@ -349,7 +349,7 @@ Your home page settings system is **complete and ready to use**!
 
 | Resource | URL |
 |----------|-----|
-| Admin Panel | `/admin/home-settings` |
+| Admin Panel | `/x9k2m7p4q8w5n3j6/home-settings` |
 | Home Page | `/` |
 | Supabase Dashboard | Your Supabase URL |
 

@@ -48,7 +48,7 @@ Created a complete system to select which products appear on the home page from 
 
 ## Admin Panel Usage
 
-1. Go to `/admin/home-settings`
+1. Go to `/x9k2m7p4q8w5n3j6/home-settings`
 2. Click "محصولات" (Products) tab
 3. Scroll down to "انتخاب محصولات نمایشی"
 4. Click on products to select/deselect them

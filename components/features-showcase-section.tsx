@@ -121,19 +121,19 @@ const defaultFeatures = {
 }
 
 export function FeaturesShowcaseSection({ language, features }: FeaturesShowcaseSectionProps) {
-  const displayFeatures = features && features.length > 0 
+  const displayFeatures = features && features.length > 0
     ? features.map(f => ({
-        icon: iconMap[f.icon] || Battery,
-        title: language === "dari" ? f.title_dari : f.title_pashto,
-        titleEn: f.title_en,
-        description: language === "dari" ? f.description_dari : f.description_pashto,
-        stat: f.stat
-      }))
+      icon: iconMap[f.icon] || Battery,
+      title: language === "dari" ? f.title_dari : f.title_pashto,
+      titleEn: f.title_en,
+      description: language === "dari" ? f.description_dari : f.description_pashto,
+      stat: f.stat
+    }))
     : defaultFeatures[language].map(f => ({
-        ...f,
-        icon: iconMap[f.icon] || Battery
-      }))
-  
+      ...f,
+      icon: iconMap[f.icon] || Battery
+    }))
+
   const t = {
     title: language === "pashto" ? "ځانګړتیاوې" : "ویژگی‌ها",
     subtitle: language === "pashto" ? "د راتلونکي لپاره ډیزاین شوی" : "طراحی شده برای آینده",
@@ -219,7 +219,7 @@ export function FeaturesShowcaseSection({ language, features }: FeaturesShowcase
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {t.features.map((feature, index) => {
             const Icon = feature.icon
-            
+
             return (
               <motion.div
                 key={index}

@@ -39,7 +39,7 @@ Run this SQL in your Supabase SQL Editor:
 ## How to Use
 
 1. **Navigate to Admin Panel**
-   - Go to `/admin/home-settings`
+   - Go to `/x9k2m7p4q8w5n3j6/home-settings`
    - Click on "مدل‌های موتور" tab (second tab)
 
 2. **Add New Model**

@@ -8,7 +8,7 @@ Complete Create, Read, Update, Delete (CRUD) functionality for products.
 
 ## ✅ Completed Features
 
-### 1. ✅ View Product (`/admin/products/[id]`)
+### 1. ✅ View Product (`/x9k2m7p4q8w5n3j6/products/[id]`)
 **Status**: Complete & Functional
 
 **Features:**
@@ -55,7 +55,7 @@ Complete Create, Read, Update, Delete (CRUD) functionality for products.
 6. List refreshes (or redirects)
 ```
 
-### 3. ✅ Create Product (`/admin/products/new`)
+### 3. ✅ Create Product (`/x9k2m7p4q8w5n3j6/products/new`)
 **Status**: Complete & Functional (Already created)
 
 **Features:**
@@ -65,7 +65,7 @@ Complete Create, Read, Update, Delete (CRUD) functionality for products.
 - Validation
 - Database integration
 
-### 4. 📝 Edit Product (`/admin/products/[id]/edit`)
+### 4. 📝 Edit Product (`/x9k2m7p4q8w5n3j6/products/[id]/edit`)
 **Status**: Ready to implement
 
 **What's Needed:**
@@ -184,7 +184,7 @@ const handleDelete = async () => {
   
   if (!error) {
     alert("محصول حذف شد")
-    router.push("/admin/products") // Redirect
+    router.push("/x9k2m7p4q8w5n3j6/products") // Redirect
   }
 }
 ```
@@ -204,11 +204,11 @@ const handleDelete = async () => {
 
 **After:**
 ```tsx
-<Link href={`/admin/products/${product.id}`}>
+<Link href={`/x9k2m7p4q8w5n3j6/products/${product.id}`}>
   <button>مشاهده</button>
 </Link>
 
-<Link href={`/admin/products/${product.id}/edit`}>
+<Link href={`/x9k2m7p4q8w5n3j6/products/${product.id}/edit`}>
   <button>ویرایش</button>
 </Link>
 
@@ -329,8 +329,8 @@ View Page → Click "ویرایش" → Edit Form → Save → View Page
 
 To create the edit page, follow these steps:
 
-1. **Copy** `app/admin/products/new/page.tsx`
-2. **Rename** to `app/admin/products/[id]/edit/page.tsx`
+1. **Copy** `app/x9k2m7p4q8w5n3j6/products/new/page.tsx`
+2. **Rename** to `app/x9k2m7p4q8w5n3j6/products/[id]/edit/page.tsx`
 3. **Add** product loading on mount
 4. **Pre-fill** all form fields with existing data
 5. **Change** submit to UPDATE instead of INSERT
@@ -351,7 +351,7 @@ const { error } = await supabase
   .eq('id', productId)
 
 // Redirect to view page
-router.push(`/admin/products/${productId}`)
+router.push(`/x9k2m7p4q8w5n3j6/products/${productId}`)
 ```
 
 ---

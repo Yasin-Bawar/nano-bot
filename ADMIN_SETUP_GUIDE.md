@@ -61,47 +61,47 @@ npm install @types/bcryptjs
 
 ## 🚀 Admin Panel Features
 
-### Dashboard (`/admin/dashboard`)
+### Dashboard (`/x9k2m7p4q8w5n3j6/dashboard`)
 - **Real-time Statistics**: Customers, orders, messages, revenue
 - **Recent Orders**: Latest order activity with status
 - **Order Status Distribution**: Visual breakdown of order statuses
 - **Performance Metrics**: Revenue trends and growth indicators
 
-### Customer Management (`/admin/customers`)
+### Customer Management (`/x9k2m7p4q8w5n3j6/customers`)
 - **Customer List**: Paginated customer directory
 - **Search & Filter**: Find customers by name, phone, location
 - **Customer Details**: View customer information and history
 - **Export Capabilities**: Export customer data
 
-### Order Management (`/admin/orders`)
+### Order Management (`/x9k2m7p4q8w5n3j6/orders`)
 - **Order Tracking**: Complete order lifecycle management
 - **Status Updates**: Change order status with real-time updates
 - **Customer Integration**: View customer details for each order
 - **Filtering**: Filter by status, date, customer
 - **Bulk Operations**: Handle multiple orders simultaneously
 
-### Message Center (`/admin/messages`)
+### Message Center (`/x9k2m7p4q8w5n3j6/messages`)
 - **Conversation View**: Chat-like interface for customer communication
 - **Real-time Messaging**: Send and receive messages instantly
 - **Message History**: Complete conversation threads
 - **Product Cards**: Handle product recommendation messages
 - **Customer Context**: Access customer and order information
 
-### Product Management (`/admin/products`)
+### Product Management (`/x9k2m7p4q8w5n3j6/products`)
 - **Product Catalog**: Visual grid of all products
 - **Inventory Tracking**: Stock levels and availability
 - **Product Analytics**: Performance metrics per product
 - **Category Management**: Organize products by category
 - **Bulk Operations**: Edit multiple products at once
 
-### Analytics (`/admin/analytics`)
+### Analytics (`/x9k2m7p4q8w5n3j6/analytics`)
 - **Revenue Analytics**: Track income trends and patterns
 - **Sales Performance**: Top products and category breakdown
 - **Customer Insights**: New customer acquisition trends
 - **Time-based Reports**: 7d, 30d, 90d, 1y reporting periods
 - **Activity Timeline**: Recent system activity
 
-### System Settings (`/admin/settings`)
+### System Settings (`/x9k2m7p4q8w5n3j6/settings`)
 - **General Settings**: Site name, description, contact info
 - **Notification Preferences**: Email, SMS, order notifications
 - **Security Settings**: 2FA, session timeout, login attempts

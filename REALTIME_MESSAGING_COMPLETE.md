@@ -3,7 +3,7 @@
 ## What Was Fixed
 
 ### 1. Admin Messages Page - Real-Time Updates ✅
-**File:** `app/admin/messages/page.tsx`
+**File:** `app/x9k2m7p4q8w5n3j6/messages/page.tsx`
 
 **Implementation:**
 - Added Supabase real-time subscription to the messages table
@@ -171,7 +171,7 @@ supabase
 
 ## Files Modified
 
-1. `app/admin/messages/page.tsx` - Added real-time subscription
+1. `app/x9k2m7p4q8w5n3j6/messages/page.tsx` - Added real-time subscription
 2. `app/messaging/page.tsx` - Already had real-time (verified working)
 3. `lib/api/messages.ts` - Real-time functions already implemented
 

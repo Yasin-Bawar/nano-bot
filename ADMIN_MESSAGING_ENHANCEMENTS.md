@@ -38,7 +38,7 @@
 
 ## Files to Modify
 
-- `app/admin/messages/page.tsx` - Main messaging interface
+- `app/x9k2m7p4q8w5n3j6/messages/page.tsx` - Main messaging interface
 - `lib/api/products.ts` - Fetch products for recommendation
 - `public/sounds/notification.mp3` - Notification sound file
 

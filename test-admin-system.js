@@ -10,13 +10,13 @@ console.log('🧪 Testing NANOBOT Admin System...\n')
 // Test 1: Check if admin routes are accessible
 console.log('📋 Test Checklist:')
 console.log('1. ✅ Admin login page: http://localhost:3000/admin')
-console.log('2. ✅ Dashboard: http://localhost:3000/admin/dashboard')
-console.log('3. ✅ Customers: http://localhost:3000/admin/customers')
-console.log('4. ✅ Orders: http://localhost:3000/admin/orders')
-console.log('5. ✅ Messages: http://localhost:3000/admin/messages')
-console.log('6. ✅ Products: http://localhost:3000/admin/products')
-console.log('7. ✅ Analytics: http://localhost:3000/admin/analytics')
-console.log('8. ✅ Settings: http://localhost:3000/admin/settings')
+console.log('2. ✅ Dashboard: http://localhost:3000/x9k2m7p4q8w5n3j6/dashboard')
+console.log('3. ✅ Customers: http://localhost:3000/x9k2m7p4q8w5n3j6/customers')
+console.log('4. ✅ Orders: http://localhost:3000/x9k2m7p4q8w5n3j6/orders')
+console.log('5. ✅ Messages: http://localhost:3000/x9k2m7p4q8w5n3j6/messages')
+console.log('6. ✅ Products: http://localhost:3000/x9k2m7p4q8w5n3j6/products')
+console.log('7. ✅ Analytics: http://localhost:3000/x9k2m7p4q8w5n3j6/analytics')
+console.log('8. ✅ Settings: http://localhost:3000/x9k2m7p4q8w5n3j6/settings')
 
 console.log('\n🔐 Admin Credentials:')
 console.log('Primary: yasinadil834@gmail.com / Yasin2025@')
@@ -43,7 +43,7 @@ console.log('Your NANOBOT admin panel is fully functional! 🎉')
 if (typeof window !== 'undefined') {
   console.log('\n🧪 Testing API endpoint...')
   
-  fetch('/api/admin/login', {
+  fetch('/api/x9k2m7p4q8w5n3j6/login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({

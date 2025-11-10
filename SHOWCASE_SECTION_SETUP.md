@@ -38,7 +38,7 @@ Or copy and paste the contents of `add-showcase-features.sql` into Supabase SQL 
 ## How to Use
 
 1. **Navigate to Admin Panel**
-   - Go to `/admin/home-settings`
+   - Go to `/x9k2m7p4q8w5n3j6/home-settings`
    - Click on "نمایش چرخشی" tab
 
 2. **Add New Feature**

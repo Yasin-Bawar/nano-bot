@@ -53,7 +53,7 @@ ON CONFLICT (id) DO NOTHING;
 
 1. **Go to Admin Panel**
    ```
-   http://localhost:3000/admin/home-settings
+   http://localhost:3000/x9k2m7p4q8w5n3j6/home-settings
    ```
 
 2. **Try Editing**

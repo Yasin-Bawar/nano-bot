@@ -4,7 +4,7 @@
 
 | Page | URL |
 |------|-----|
-| Admin Panel | `/admin/home-settings` |
+| Admin Panel | `/x9k2m7p4q8w5n3j6/home-settings` |
 | Home Page | `/` |
 
 ## 📊 Database Tables
@@ -82,7 +82,7 @@ const url = await uploadImage(file)
 
 - [ ] Run `SQL_CODE_ONLY.sql` in Supabase
 - [ ] Verify tables created
-- [ ] Access `/admin/home-settings`
+- [ ] Access `/x9k2m7p4q8w5n3j6/home-settings`
 - [ ] Test editing content
 - [ ] Test image upload
 - [ ] Test adding features
@@ -121,7 +121,7 @@ const url = await uploadImage(file)
 ## 🎉 Quick Start (3 Steps)
 
 1. **Run SQL** → Copy `SQL_CODE_ONLY.sql` to Supabase
-2. **Access Admin** → Go to `/admin/home-settings`
+2. **Access Admin** → Go to `/x9k2m7p4q8w5n3j6/home-settings`
 3. **Start Editing** → Edit content and save!
 
 ---

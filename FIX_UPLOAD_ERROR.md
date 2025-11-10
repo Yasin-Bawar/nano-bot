@@ -44,7 +44,7 @@ ON CONFLICT (id) DO UPDATE SET public = true;
 
 ### Step 2: Test Upload
 
-1. Go to `/admin/home-settings`
+1. Go to `/x9k2m7p4q8w5n3j6/home-settings`
 2. Try uploading an image
 3. Should work now! ✅
 
