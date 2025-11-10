@@ -1,9 +1,9 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { AdminLayout } from "@/components/x9k2m7p4q8w5n3j6/admin5n3j6/admin-layout"
+import { AdminLayout } from "@/components/x9k2m7p4q8w5n3j6/admin-layout"
 import { TrendingUp, TrendingDown, DollarSign, ShoppingBag, Users, Package, BarChart3, PieChart, Activity } from "lucide-react"
-import { getAnalytics } from "@/lib/api/admin7p4q8w5n3j6"
+import { getAnalytics } from "@/lib/api/admin"
 
 export default function AnalyticsPage() {
   const [analytics, setAnalytics] = useState<any>(null)
@@ -39,7 +39,7 @@ export default function AnalyticsPage() {
         <div className="flex items-center justify-center h-64">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
         </div>
-      </admin7p4q8w5n3j6Layout>
+      </AdminLayout>
     )
   }
 
@@ -251,6 +251,6 @@ export default function AnalyticsPage() {
           </div>
         </div>
       </div>
-    </admin7p4q8w5n3j6Layout>
+    </AdminLayout>
   )
 }
