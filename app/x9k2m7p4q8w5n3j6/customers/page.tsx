@@ -1,9 +1,9 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { AdminLayout } from "@/components/x9k2m7p4q8w5n3j6/admin5n3j6/admin-layout"
+import { AdminLayout } from "@/components/x9k2m7p4q8w5n3j6/admin-layout"
 import { Search, MapPin, Phone, Calendar, ChevronLeft, ChevronRight, Users, Mail, ShoppingBag, MessageCircle } from "lucide-react"
-import { getCustomers } from "@/lib/api/admin7p4q8w5n3j6"
+import { getCustomers } from "@/lib/api/admin"
 
 // Helper function to format date in Farsi
 function formatDate(dateString: string) {
@@ -227,6 +227,6 @@ export default function CustomersPage() {
           )}
         </div>
       </div>
-    </admin7p4q8w5n3j6Layout>
+    </AdminLayout>
   )
 }
